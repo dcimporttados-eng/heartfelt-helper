@@ -79,6 +79,67 @@
   .card-glow-gold {
     box-shadow: 0 0 0 1px hsla(51, 100%, 50%, 0.3), 0 8px 32px hsla(0, 0%, 0%, 0.3);
   }
+
+  /* ValueStack glassmorphism cards */
+  .value-card-border {
+    background: linear-gradient(
+      135deg,
+      hsla(240, 15%, 25%, 0.6) 0%,
+      hsla(240, 15%, 15%, 0.2) 100%
+    );
+    transition: background 0.3s ease;
+  }
+
+  .value-card-border:hover {
+    background: linear-gradient(
+      135deg,
+      hsla(153, 100%, 50%, 0.25) 0%,
+      hsla(153, 100%, 50%, 0.05) 100%
+    );
+  }
+
+  .value-card {
+    background: hsla(240, 15%, 7%, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background 0.3s ease, transform 0.2s ease;
+    overflow: hidden;
+  }
+
+  .value-card:hover {
+    background: hsla(240, 15%, 10%, 0.9);
+    transform: translateY(-2px);
+  }
+
+  .value-card-shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      hsla(0, 0%, 100%, 0.03) 50%,
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .value-card:hover .value-card-shine {
+    opacity: 1;
+  }
+
+  /* Section divider */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsla(240, 15%, 25%, 0.6) 20%,
+      hsla(240, 15%, 25%, 0.6) 80%,
+      transparent
+    );
+  }
 }
 
 @keyframes pulse-glow {

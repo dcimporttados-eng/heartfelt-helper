@@ -17,27 +17,35 @@ const items = [
 ];
 
 const ValueStack = () => (
-  <section className="py-20 px-4">
+  <section className="py-24 px-4">
     <div className="container max-w-5xl mx-auto">
       <ScrollReveal>
-        <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-14" style={{ textWrap: "balance" as any }}>
+        <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-4" style={{ textWrap: "balance" as any }}>
           Olha Tudo Que Você Leva Hoje
         </h2>
+        <p className="text-muted-foreground text-center text-sm sm:text-base mb-14">
+          Cada item abaixo vale muito mais do que você está pagando pelo pack inteiro.
+        </p>
       </ScrollReveal>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         {items.map((item, i) => (
-          <ScrollReveal key={i} delay={i * 80}>
-            <div className="bg-card rounded-xl p-5 sm:p-6 card-glow relative group hover:border-primary/20 transition-colors duration-300 h-full">
-              <span className="absolute top-4 right-4 text-gradient-gold font-heading font-bold text-sm">
-                {item.value}
-              </span>
-              <div className="flex items-start gap-3 pr-16">
-                <span className="text-2xl flex-shrink-0 mt-0.5">{item.emoji}</span>
-                <div>
-                  <h3 className="font-heading font-bold text-foreground text-sm sm:text-base mb-1">{item.title}</h3>
-                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{item.sub}</p>
+          <ScrollReveal key={i} delay={i * 60}>
+            {/* Gradient border wrapper */}
+            <div className="rounded-xl p-px value-card-border h-full">
+              <div className="value-card rounded-xl p-5 sm:p-6 h-full relative group">
+                <span className="absolute top-4 right-4 text-gradient-gold font-heading font-bold text-sm">
+                  {item.value}
+                </span>
+                <div className="flex items-start gap-3 pr-16">
+                  <span className="text-2xl flex-shrink-0 mt-0.5">{item.emoji}</span>
+                  <div>
+                    <h3 className="font-heading font-bold text-foreground text-sm sm:text-base mb-1">{item.title}</h3>
+                    <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{item.sub}</p>
+                  </div>
                 </div>
+                {/* Shine effect on hover */}
+                <div className="value-card-shine" />
               </div>
             </div>
           </ScrollReveal>
@@ -46,17 +54,23 @@ const ValueStack = () => (
 
       {/* Total */}
       <ScrollReveal delay={200}>
-        <div className="mt-14 text-center space-y-3">
-          <p className="text-muted-foreground text-lg">
-            Valor total se comprasse separado: <span className="line-through text-destructive">R$2.634</span>
-          </p>
-          <p className="font-heading font-extrabold text-3xl sm:text-4xl text-foreground">
-            Seu investimento hoje: <span className="text-primary">R$37</span>
-          </p>
-          <p className="text-primary font-heading font-bold text-lg">
-            Você economiza: R$2.597 (95% de desconto)
-          </p>
-          <div className="pt-6">
+        <div className="mt-16 text-center">
+          <div className="inline-block rounded-2xl p-px bg-gradient-to-br from-primary/30 to-primary/5 mb-8">
+            <div className="bg-card rounded-2xl px-8 py-6 space-y-2">
+              <p className="text-muted-foreground text-base">
+                Valor total se comprasse separado:{" "}
+                <span className="line-through text-destructive font-heading font-semibold">R$2.634</span>
+              </p>
+              <p className="font-heading font-extrabold text-3xl sm:text-4xl text-foreground">
+                Seu investimento hoje:{" "}
+                <span className="text-primary">R$37</span>
+              </p>
+              <p className="text-primary font-heading font-bold text-base">
+                Você economiza: R$2.597 — <span className="text-accent">95% de desconto</span>
+              </p>
+            </div>
+          </div>
+          <div>
             <CTAButton text="QUERO TUDO ISSO POR APENAS R$37 →" />
           </div>
         </div>
